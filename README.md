@@ -48,5 +48,8 @@ Node-RED performs the following actions:
 6. Evaluate inverted moisture reading for low moisture condition
 7. Publish message to AWS Simple Notification Service(SNS) topic for low moisture condition through local API
 
+### TODO: Insert link to Blynk screenshot
+### TODO: Insert screenshot of Node-RED flow
+
 ### API
 There are a few Node-RED node collections available for working with Amazon Web Services(AWS), and the Simple Notification Service(SNS), in particular. None appear to be actively under development. As a result, a local API was built to handle the interaction with SNS when a low moisture condition occurs. The API is written in Python3 using [aiohttp](https://docs.aiohttp.org/en/stable/) and leverages the [AWS Python SDK](https://aws.amazon.com/sdk-for-python/). The API exposes a single endpoint, /plants/moisture/low_alert/, in order to publish a message to an SNS topic. Subscribers to the SNS topic will receive an SMS message on their mobile phone altering them to the low moisture condition.
