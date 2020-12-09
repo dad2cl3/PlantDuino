@@ -54,11 +54,11 @@ Node-RED performs the following actions:
 
 ![Blynk screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-Blynk.PNG)
 
-![SMS screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-SNS-SMS.jpg)
-
 ### API
 There are a few Node-RED node collections available for working with Amazon Web Services(AWS), and the Simple Notification Service(SNS), in particular. None appear to be actively under development. As a result, a local API was built to handle the interaction with SNS when a low moisture condition occurs. The API is written in Python3 using [aiohttp](https://docs.aiohttp.org/en/stable/) and leverages the [AWS Python SDK](https://aws.amazon.com/sdk-for-python/). The API exposes a single endpoint, /plants/moisture/low_alert/, in order to publish a message to an SNS topic. Subscribers to the SNS topic will receive an SMS message on their mobile phone altering them to the low moisture condition.
 
 The Python3 API relies has the following dependencies:
 1. virtualenv
 3. pip3 install aiohttp boto3
+
+![SMS screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-SNS-SMS.jpg)
