@@ -26,3 +26,24 @@ ESP32 board documentation can be found [here](https://docs.espressif.com/project
 
 ### Arduino script
 Because the sensor can be battery-powered, the script leverages the ESP32 deep sleep function. Therefore, all code is in the setup function instead of the loop function.
+
+The script performs the following actions:
+1. Connect to specified WiFi access point
+2. Get readings from the sensors
+3. Format telemetry data as JSON
+4. Connect to specified MQTT broker
+5. Publish formatted telemetry data to MQTT broker
+6. Deep sleep for specified interval
+
+### Node-RED and Blynk
+Node-RED relies upon the following libraries:
+1. [node-red-contrib-blynk-ws](https://github.com/gablau/node-red-contrib-blynk-ws) - Handles the websocket connection to Blynk and provides the write event node for updating Blynk
+
+Node-RED performs the following actions:
+1. Manages MQTT broker connection
+2. Adds a timestamp to the flow
+3. Parse the telemetry data
+4. Invert the moisture reading
+5. Update Blynk
+6. Evaluate inverted moisture reading for low moisture condition
+7. Publish message to AWS Simple Notification Service(SNS) topic for low moisture condition through local API
