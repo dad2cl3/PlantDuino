@@ -3,6 +3,8 @@
 ## Description
 Simple Arduino script to monitor the moisture level of a potted plant. Sensor telemetry data is published using MQTT. MQTT data is consumed by Node-RED and published to Blynk. Additionally, AWS Simple Notification Service (SNS) is utilized to trigger SMS messages to subscribers when low moisture conditions are recorded by the sensor.
 
+![PlantDuino example](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-Example.jpg)
+
 ## Required hardware
 ESP32 WiFi-enabled capacitive soil moisture and temperature and humidity sensor [link](https://smile.amazon.com/gp/product/B07VX1DWKK/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
 
@@ -51,6 +53,8 @@ Node-RED performs the following actions:
 ![Node-RED screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-Node-RED.png)
 
 ![Blynk screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-Blynk.PNG)
+
+![SMS screenshot](https://github.com/dad2cl3/PlantDuino/blob/main/assets/PlantDuino-SNS-SMS.jpg)
 
 ### API
 There are a few Node-RED node collections available for working with Amazon Web Services(AWS), and the Simple Notification Service(SNS), in particular. None appear to be actively under development. As a result, a local API was built to handle the interaction with SNS when a low moisture condition occurs. The API is written in Python3 using [aiohttp](https://docs.aiohttp.org/en/stable/) and leverages the [AWS Python SDK](https://aws.amazon.com/sdk-for-python/). The API exposes a single endpoint, /plants/moisture/low_alert/, in order to publish a message to an SNS topic. Subscribers to the SNS topic will receive an SMS message on their mobile phone altering them to the low moisture condition.
