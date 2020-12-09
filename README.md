@@ -7,7 +7,7 @@ Simple Arduino script to monitor the moisture level of a potted plant. Sensor te
 ESP32 WiFi-enabled capacitive soil moisture and temperature and humidity sensor [link](https://smile.amazon.com/gp/product/B07VX1DWKK/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
 
 ## Measurement range
-The lower limit of the sensor was measured in a container of dirt dried in an oven at 250°F for several days and was equal to ???. The upper limit of the sensor was measured in a glass of water and was equal to 1360. Based on the formula below, the upper limit of the sensor is 0.74. Because the measurement from the sensor is inversely proportional to the moisture level of the soil, the inverse of the moisture reading multiplied by 1000 is utilized. The formula is as follows:
+The lower limit of the sensor was measured in a container of dirt dried in an oven at 250°F for several days and was equal to ~3200. Based on the formula below, the lower limit of the sensor is 0.31 The upper limit of the sensor was measured in a glass of water and was equal to 1360. Based on the formula below, the upper limit of the sensor is 0.74. Because the measurement from the sensor is inversely proportional to the moisture level of the soil, the inverse of the moisture reading multiplied by 1000 is utilized. The formula is as follows:
 
 <img src="http://latex.codecogs.com/svg.latex?1/_{M_r}*1000" title="http://latex.codecogs.com/svg.latex?1/_{M_r}*1000" />
 
